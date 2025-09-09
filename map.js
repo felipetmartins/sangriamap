@@ -141,7 +141,14 @@ function criarCategoria(tipo, markers) {
   div.classList.add("categoria");
 
   const titulo = document.createElement("h4");
-  titulo.innerHTML = `${categorias[tipo] || tipo} <span class="arrow">▶</span>`;
+  const textoTitulo = document.createElement("span");
+  textoTitulo.textContent = categorias[tipo] || tipo;
+  const arrow = document.createElement("span");
+  arrow.className = "arrow";
+  arrow.textContent = "▶";
+  titulo.appendChild(textoTitulo);
+  titulo.appendChild(arrow);
+
   const ul = document.createElement("ul");
   ul.classList.add("lista-marcadores");
 
@@ -155,11 +162,17 @@ function criarCategoria(tipo, markers) {
     ul.appendChild(li);
   });
 
-  titulo.addEventListener("click", () => {
-    const aberta = ul.style.display === "block";
-    ul.style.display = aberta ? "none" : "block";
-    const arrow = titulo.querySelector(".arrow");
-    arrow.style.transform = aberta ? "rotate(0deg)" : "rotate(90deg)";
+  const toggleCategoria = () => {
+    const estavaVisivel = ul.classList.contains("visible");
+    ul.classList.toggle("visible");
+    arrow.style.transform = estavaVisivel ? "" : "rotate(90deg)";
+  };
+
+  // Adiciona o evento de clique tanto no título quanto na seta
+  titulo.addEventListener("click", toggleCategoria);
+  arrow.addEventListener("click", (e) => {
+    e.stopPropagation(); // Evita duplo trigger quando clicar na seta
+    toggleCategoria();
   });
 
   div.appendChild(titulo);
