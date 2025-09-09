@@ -195,3 +195,21 @@ document.getElementById("hideAll").addEventListener("click", () => {
   document.getElementById("hideAll").classList.add("active");
   document.getElementById("showAll").classList.remove("active");
 });
+
+function atualizarIcones() {
+  const zoom = map.getZoom();
+  const minZoom = map.getMinZoom();
+
+  for (let tipo in grupos) {
+    grupos[tipo].forEach(marker => {
+      const scale = (zoom - minZoom) * 5 + 28;
+      const newSize = Math.floor(scale);
+      const iconUrl = marker.options.icon.options.iconUrl;
+
+      const newIcon = criarIcone(iconUrl, newSize);
+      marker.setIcon(newIcon);
+    });
+  }
+}
+
+map.on("zoom", atualizarIcones);
