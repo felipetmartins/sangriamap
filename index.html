@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>SANGRIA FALLS RPG</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>SANGRIA FALLS RPG<button id="toggleSidebar">☰</button></header>
+  <div id="map"></div>
+  <div id="coords">x: 0, y: 0</div>
+  
+  <div id="sidebar">
+    <h2>Marcadores</h2>
+    <h2>────────────</h2>
+    <div class="btn-group">
+      <button id="showAll" class="btn active">Mostrar tudo</button>
+      <button id="hideAll" class="btn">Esconder tudo</button>
+    </div>
+    <div id="lista-marcadores"></div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="map.js"></script>
+</body>
+</html>
