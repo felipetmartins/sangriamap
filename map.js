@@ -143,7 +143,7 @@ function criarCategoria(tipo, markers) {
 
   const titulo = document.createElement("h4");
   const textoTitulo = document.createElement("span");
-  textoTitulo.textContent = categorias[tipo] || tipo;
+  textoTitulo.innerHTML = categorias[tipo] || tipo;
   const arrow = document.createElement("span");
   arrow.className = "arrow";
   arrow.textContent = "▶";
