@@ -4,7 +4,7 @@ document.getElementById("toggleSidebar").addEventListener("click", () => {
 });
 
 // --- Inicialização do mapa ---
-const map = L.map('map', { crs: L.CRS.Simple, minZoom: 2.3, maxZoom: 5, center: [0,0], zoom: 0 });
+const map = L.map('map', { crs: L.CRS.Simple, minZoom: 2.3, maxZoom: 5, center: [0, 0], zoom: 0 });
 const mapWidth = 6144, mapHeight = 6144;
 const southWest = map.unproject([0, mapHeight], map.getMaxZoom());
 const northEast = map.unproject([mapWidth, 0], map.getMaxZoom());
@@ -30,7 +30,7 @@ const iconCache = {};
 function criarIcone(url, size = 32) {
   const key = `${url}|${size}`;
   if (iconCache[key]) return iconCache[key];
-  const ic = L.icon({ iconUrl: url, iconSize: [size, size], iconAnchor: [size/2, size], popupAnchor: [0, -size] });
+  const ic = L.icon({ iconUrl: url, iconSize: [size, size], iconAnchor: [size / 2, size], popupAnchor: [0, -size] });
   iconCache[key] = ic;
   return ic;
 }
@@ -45,44 +45,45 @@ const iconDefaults = {
 
 // --- Coordenadas dos marcadores ---
 const pontos = [
-  {x:3484,y:4466,nome:"Mercado sombrio (Mestre das missões diárias)",tipo:"mercado"},
-  {x:1211,y:2293,nome:"Shemhazai (Conquista: A Essência da Luminância)",tipo:"conquista"},
-  {x:4930,y:2370,nome:"Chefe Mundial (WB)",tipo:"wb"},
-  {x:4547,y:2926,nome:"Chefe Mundial (WB)",tipo:"wb"},
-  {x:4110,y:3715,nome:"Piracema (Todos os dias às 19:30)",tipo:"eventos",icone:"icons/fish.svg"},
-  {x:3679,y:4255,nome:"Coliseu PVP ⚔️",tipo:"eventos",icone:"icons/coliseu.svg"},
-  {x:3293,y:3920,nome:"Classe: Noctarin",tipo:"noctarin"},
-  {x:3138,y:3640,nome:"Evolução: Noctarin",tipo:"noctarin"},
-  {x:4730,y:3525,nome:"Classe: Mortak",tipo:"mortak"},
-  {x:982,y:2815,nome:"Evolução: Mortak",tipo:"mortak"},
-  {x:3120,y:4105,nome:"Classe: Sepulkros",tipo:"sepulkros"},
-  {x:3945,y:5175,nome:"Evolução: Sepulkros",tipo:"sepulkros"},
-  {x:1260,y:2700,nome:"Classe: Bastien",tipo:"bastien"},
-  {x:1560,y:2680,nome:"Evolução: Bastien",tipo:"bastien"},
-  {x:3780,y:2655,nome:"Classe: Draekhar",tipo:"draekhar"},
-  {x:4263,y:1190,nome:"Evolução: Draekhar",tipo:"draekhar"},
-  {x:4232,y:1490,nome:"Classe: Skarn",tipo:"skarn"},
-  {x:2414,y:1430,nome:"Evolução: Skarn",tipo:"skarn"},
-  {x:2996,y:1010,nome:"Classe: Carmesyne",tipo:"carmesyne"},
-  {x:2193,y:1150,nome:"Evolução: Carmesyne",tipo:"carmesyne"},
-  {x:3257,y:3153,nome:"Classe: Umbrellis",tipo:"umbrellis"},
-  {x:1060,y:1410,nome:"Evolução: Umbrellis",tipo:"umbrellis"},
-  {x:5394,y:2465,nome:"Invasão Solarus - Solarus",tipo:"eventos", icone:'icons/invasao.svg'},
-  {x:4331,y:2975,nome:"Invasão Solarus - Azariel",tipo:"eventos", icone:'icons/invasao.svg'},
-  {x:640,y:1415,nome:"Invasão Solarus - Raziel",tipo:"eventos", icone:'icons/invasao.svg'},
-  {x:4485,y:2286,nome:"Invasão Megara - Jakira",tipo:"eventos", icone:'icons/invasao.svg'},
-  {x:936,y:2880,nome:"Invasão Megara - Stravos",tipo:"eventos", icone:'icons/invasao.svg'},
-  {x:973,y:1850,nome:"Invasão Drácula - Cassius",tipo:"eventos", icone:'icons/invasao.svg'},
-  {x:1252,y:2811,nome:"Invasão Drácula - Valencia",tipo:"eventos", icone:'icons/invasao.svg'},
-  {x:2724,y:4535,nome:"Invasão Drácula - Drácula",tipo:"eventos", icone:'icons/invasao.svg'}
+  { x: 3484, y: 4466, nome: "Mercado sombrio (Mestre das missões diárias)", tipo: "mercado" },
+  { x: 1211, y: 2293, nome: "Shemhazai (Conquista: A Essência da Luminância)", tipo: "conquista" },
+  { x: 4930, y: 2370, nome: "Chefe Mundial (WB)", tipo: "wb" },
+  { x: 4547, y: 2926, nome: "Chefe Mundial (WB)", tipo: "wb" },
+  { x: 4110, y: 3715, nome: "Piracema (Todos os dias às 19:30)", tipo: "eventos", icone: "icons/fish.svg" },
+  { x: 3679, y: 4255, nome: "Coliseu PVP ⚔️", tipo: "eventos", icone: "icons/coliseu.svg" },
+  { x: 3293, y: 3920, nome: "Classe: Noctarin", tipo: "noctarin" },
+  { x: 3138, y: 3640, nome: "Evolução: Noctarin", tipo: "noctarin" },
+  { x: 4730, y: 3525, nome: "Classe: Mortak", tipo: "mortak" },
+  { x: 982, y: 2815, nome: "Evolução: Mortak", tipo: "mortak" },
+  { x: 3120, y: 4105, nome: "Classe: Sepulkros", tipo: "sepulkros" },
+  { x: 3945, y: 5175, nome: "Evolução: Sepulkros", tipo: "sepulkros" },
+  { x: 1260, y: 2700, nome: "Classe: Bastien", tipo: "bastien" },
+  { x: 1560, y: 2680, nome: "Evolução: Bastien", tipo: "bastien" },
+  { x: 3780, y: 2655, nome: "Classe: Draekhar", tipo: "draekhar" },
+  { x: 4263, y: 1190, nome: "Evolução: Draekhar", tipo: "draekhar" },
+  { x: 4232, y: 1490, nome: "Classe: Skarn", tipo: "skarn" },
+  { x: 2414, y: 1430, nome: "Evolução: Skarn", tipo: "skarn" },
+  { x: 2996, y: 1010, nome: "Classe: Carmesyne", tipo: "carmesyne" },
+  { x: 2193, y: 1150, nome: "Evolução: Carmesyne", tipo: "carmesyne" },
+  { x: 3257, y: 3153, nome: "Classe: Umbrellis", tipo: "umbrellis" },
+  { x: 1060, y: 1410, nome: "Evolução: Umbrellis", tipo: "umbrellis" },
+  { x: 5394, y: 2465, nome: "Invasão Solarus - Solarus", tipo: "invasao", icone: 'icons/invasao.svg' },
+  { x: 4331, y: 2975, nome: "Invasão Solarus - Azariel", tipo: "invasao", icone: 'icons/invasao.svg' },
+  { x: 640, y: 1415, nome: "Invasão Solarus - Raziel", tipo: "invasao", icone: 'icons/invasao.svg' },
+  { x: 4485, y: 2286, nome: "Invasão Megara - Jakira", tipo: "invasao", icone: 'icons/invasao.svg' },
+  { x: 936, y: 2880, nome: "Invasão Megara - Stravos", tipo: "invasao", icone: 'icons/invasao.svg' },
+  { x: 973, y: 1850, nome: "Invasão Drácula - Cassius", tipo: "invasao", icone: 'icons/invasao.svg' },
+  { x: 1252, y: 2811, nome: "Invasão Drácula - Valencia", tipo: "invasao", icone: 'icons/invasao.svg' },
+  { x: 2724, y: 4535, nome: "Invasão Drácula - Drácula", tipo: "invasao", icone: 'icons/invasao.svg' }
 ];
 
 // --- Categorias dos marcadores ---
 const categorias = {
-  mercado:"🪙 Mercado", wb:"☠️ Chefe Mundial", conquista:"🏆 Conquistas",
-  sepulkros:"💀 Sepulkros", noctarin:"🌑 Noctarin", bastien:"🛡 Bastien",
-  mortak:"🔥 Mortak", draekhar:"🐉 Draekhar", carmesyne:"❤️ Carmesyne",
-  skarn:"🪨 Skarn", umbrellis:"🌂 Umbrellis", eventos:"📌 Eventos", normal:"📍 Outros"
+  mercado: '<i class="fa-solid fa-cart-shopping"></i> Mercado', wb: '<i class="fa-solid fa-horse"></i> Chefe Mundial', conquista: '<i class="fa-solid fa-trophy"></i> Conquistas',
+  invasao: '<i class="fa-solid fa-ghost"></i> Invasões', normal: '<i class="fa-solid fa-location-dot"></i> Outros',
+  sepulkros: '<i class="fa-solid fa-crow"></i> Sepulkros', noctarin: '<i class="fa-solid fa-leaf"></i> Noctarin', bastien: '<i class="fa-solid fa-shield-halved"></i> Bastien',
+  mortak: '<i class="fa-solid fa-chess-knight"></i> Mortak', draekhar: '<i class="fa-solid fa-hat-wizard"></i> Draekhar', carmesyne: '<i class="fa-solid fa-crosshairs"></i> Carmesyne',
+  skarn: '<i class="fa-solid fa-drumstick-bite"></i> Skarn', umbrellis: '<i class="fa-solid fa-skull-crossbones"></i> Umbrellis', eventos: '<i class="fa-solid fa-calendar"></i> Eventos'
 };
 
 const grupos = {};
