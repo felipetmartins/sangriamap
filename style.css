@@ -147,21 +147,62 @@ header {
   font-size: 16px;
 }
 
-#lista-marcadores details > summary {
-  color: #e74c3c;   /* vermelho */
-  font-weight: bold;
-  cursor: pointer;
-  margin: 6px 0;
-  list-style: none;
+.categoria {
+  margin-bottom: 10px;
 }
 
-#lista-marcadores details ul li {
-  color: #fff;      /* branco */
-  margin-left: 15px;
-  font-size: 15px;
-}
-
-#lista-marcadores details ul li:hover {
+.categoria h4 {
   color: #e74c3c;
+  font-size: 16px;
+  margin: 0;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   cursor: pointer;
+  background: rgba(255,255,255,0.05);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.categoria h4:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+.categoria .arrow {
+  transition: transform 0.2s ease;
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+.categoria ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: none;
+  padding: 8px 0;
+}
+
+.categoria ul.visible {
+  display: block;
+}
+
+.categoria li {
+  padding: 6px 12px;
+  margin: 4px 0;
+  cursor: pointer;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.categoria li:hover {
+  color: #e74c3c;
+  background: rgba(255,255,255,0.05);
+  padding-left: 16px;
+}
+
+.hidden-marker {
+  opacity: 0.5;
 }
