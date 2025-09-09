@@ -1,6 +1,5 @@
 /* reset */
-html,
-body {
+html, body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -25,7 +24,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
 }
 
 #toggleSidebar {
@@ -57,7 +56,7 @@ header {
   position: fixed;
   bottom: 10px;
   left: 10px;
-  background: rgba(0, 0, 0, 0.7);
+  background: rgba(0,0,0,0.7);
   padding: 6px 12px;
   border-radius: 6px;
   font-size: 16px;
@@ -70,9 +69,9 @@ header {
   right: 0;
   width: 350px;
   height: calc(100% - 60px);
-  background: rgba(20, 20, 20, 0.9);
+  background: rgba(20,20,20,0.9);
   padding: 20px;
-  box-shadow: -2px 0 6px rgba(0, 0, 0, 0.5);
+  box-shadow: -2px 0 6px rgba(0,0,0,0.5);
   overflow-y: auto;
   transform: translateX(100%);
   transition: transform 0.3s ease;
@@ -106,8 +105,7 @@ header {
   cursor: pointer;
 }
 
-.btn.active,
-.btn:hover {
+.btn.active, .btn:hover {
   background: #e74c3c;
 }
 
@@ -116,7 +114,7 @@ header {
   color: #fff;
   border-radius: 16px;
   padding: 15px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.7);
   font-family: Inter, sans-serif;
   font-size: 20px;
   max-width: 300px;
@@ -162,19 +160,28 @@ header {
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255,255,255,0.05);
   border-radius: 6px;
   transition: all 0.2s ease;
 }
 
 .categoria h4:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.1);
 }
 
-.categoria .arrow {
-  transition: transform 0.2s ease;
-  font-size: 12px;
+.categoria .toggle-icon {
+  font-size: 18px;
   margin-left: 8px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  background: rgba(255,255,255,0.1);
+  border-radius: 4px;
+  line-height: 1;
 }
 
 .categoria ul {
@@ -201,14 +208,10 @@ header {
 
 .categoria li:hover {
   color: #e74c3c;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255,255,255,0.05);
   padding-left: 16px;
 }
 
 .hidden-marker {
   opacity: 0.5;
-}
-
-#sidebar i {
-  color: #FF2829
 }
