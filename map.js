@@ -53,6 +53,7 @@ const iconDefaults = {
 const pontos = [
   { x: 3484, y: 4466, nome: "<b>Mercado sombrio</b> (Mestre das missões diárias)", tipo: "mercado", link: "https://sangriafalls.com/mercado-sombrio/" },
   { x: 1211, y: 2293, nome: "<b>Shemhazai</b> (Conquista: A Essência da Luminância)", tipo: "conquista", link: "https://sangriafalls.com/a-essencia-da-luminancia/" },
+  { x: 2587, y: 3175, nome: "<b>Rathma</b> (Conquista: Filho de Thanatos)", tipo: "conquista", link: "https://sangriafalls.com/filho-de-thanatos/" },
   { x: 4930, y: 2370, nome: "<b>Chefe Mundial</b> (WB)", tipo: "wb", link: "https://sangriafalls.com/boss-mundial/" },
   { x: 4547, y: 2926, nome: "<b>Chefe Mundial</b> (WB)", tipo: "wb", link: "https://sangriafalls.com/boss-mundial/" },
   { x: 4105, y: 3725, nome: "<b>Piracema</b> (Todos os dias às 19:30)", tipo: "eventos", icone: "icons/fish.svg", link: "https://sangriafalls.com/piracema/" },
@@ -127,6 +128,22 @@ const pontos = [
   { x: 975, y: 1460, nome: "Lucile, a Alquimista Venenosa", tipo: "chefes" },
   { x: 1045, y: 800, nome: "Dantos, o Mestre da Forja", tipo: "chefes" },
   { x: 1420, y: 726, nome: "Megara, a Rainha Serpente", tipo: "chefes" },
+  { x: 2157, y: 1199, nome: "Henry Blackbrew, o Doutor", tipo: "chefes"},
+  { x: 2755, y: 739, nome: "Voltatia, a Mestre da Energia", tipo: "chefes"},
+  { x: 2295, y: 1304, nome: "Angram, o Purificador", tipo: "chefes"},
+  { x: 2358, y: 1614, nome: "Domina, a Dançarina das Lâminas", tipo: "chefes"},
+  { x: 3045, y: 1053, nome: "Ziva, a Engenheira", tipo: "chefes"},
+  { x: 3643, y: 1209, nome: "Ungora, a Aranha Rainha", tipo: "chefes"},
+  { x: 3910, y: 776, nome: "Albert, o Duque de Balaton", tipo: "chefes"},
+  { x: 4403, y: 1305, nome: "Ben, o Velho Andarilho", tipo: "chefes"},
+  { x: 4248, y: 1098, nome: "Cyril, o Ferreiro Amaldiçoado", tipo: "chefes"},
+  { x: 4391, y: 1100, nome: "Matka, a Tecelã de Maldições", tipo: "chefes"},
+  { x: 4535, y: 1444, nome: "Foulrot, o Devorador de Almas", tipo: "chefes"},
+  { x: 4364, y: 1508, nome: "Gorecrusher, o Colosso", tipo: "chefes"},
+  { x: 4697, y: 1993, nome: "General Valencia, a Depravada", tipo: "chefes"},
+  { x: 4732, y: 2747, nome: "General Elena, a Desprezível", tipo: "chefes"},
+  { x: 4759, y: 2260, nome: "General Cassius, o Traidor", tipo: "chefes"},
+  { x: 5637, y: 2470, nome: "Drácula, o Rei Imortal", tipo: "chefes"}
 ];
 
 // --- Categorias dos marcadores ---
@@ -136,8 +153,26 @@ const categorias = {
   sepulkros: '<i class="fa-solid fa-crow"></i> Sepulkros', noctarin: '<i class="fa-solid fa-leaf"></i> Noctarin', bastien: '<i class="fa-solid fa-shield-halved"></i> Bastien',
   mortak: '<i class="fa-solid fa-chess-knight"></i> Mortak', draekhar: '<i class="fa-solid fa-hat-wizard"></i> Draekhar', carmesyne: '<i class="fa-solid fa-crosshairs"></i> Carmesyne',
   skarn: '<i class="fa-solid fa-drumstick-bite"></i> Skarn', umbrellis: '<i class="fa-solid fa-skull-crossbones"></i> Umbrellis', eventos: '<i class="fa-solid fa-calendar"></i> Eventos',
-  chefes: '<i class="fa-solid fa-dragon"></i> Chefes'
+  
 };
+
+const ordemCategorias = [
+  'chefes',      // Chefes
+  'conquista',   // Conquistas
+  'wb',          // Chefe Mundial
+  'eventos',     // Eventos
+  'mercado',     // Mercado
+  'invasao',     // Invasões
+  'sepulkros',
+  'noctarin',
+  'bastien',
+  'mortak',
+  'draekhar',
+  'carmesyne',
+  'skarn',
+  'umbrellis',
+  'normal'
+];
 
 const grupos = {};
 const listaDiv = document.getElementById("lista-marcadores");
@@ -297,10 +332,7 @@ const convertPathLoc = (path) =>
   path.map(pair => map.unproject(pair, map.getMaxZoom()))
 
 var latlngs = [
-  [2400, 4626],
-  [2484, 4631],
-  [2523, 4643],
-  [2598, 4640],
+  [0, 0],
 ];
 
 var polyline = L.polyline(convertPathLoc(latlngs), { color: 'red' }).addTo(map);
