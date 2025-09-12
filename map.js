@@ -1,10 +1,15 @@
 // --- Toggle da sidebar ---
-document.getElementById("toggleSidebar").addEventListener("click", () => {
-  document.getElementById("sidebar").classList.toggle("active");
+document.getElementById("toggleSidebar").addEventListener("click", (e) => {
+  const sidebar = document.getElementById("sidebar").classList
+  sidebar.toggle("active");
+
+  const isOpen = sidebar.contains("active")
+
+  document.getElementById("toggleSidebar").innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>'
 });
 
 // --- Inicialização do mapa ---
-const map = L.map('map', { crs: L.CRS.Simple, minZoom: 2.3, maxZoom: 5, center: [0, 0], zoom: 0 });
+const map = L.map('map', { crs: L.CRS.Simple, minZoom: 2, maxZoom: 5, center: [0, 0], zoom: 0 });
 const mapWidth = 6144, mapHeight = 6144;
 const southWest = map.unproject([0, mapHeight], map.getMaxZoom());
 const northEast = map.unproject([mapWidth, 0], map.getMaxZoom());
@@ -40,41 +45,63 @@ const iconDefaults = {
   wb: 'icons/wb.svg', mercado: 'icons/mercado.svg', conquista: 'icons/conquista.svg',
   sepulkros: 'icons/sepulkros.svg', noctarin: 'icons/noctarin.svg', bastien: 'icons/bastien.svg',
   mortak: 'icons/mortak.svg', draekhar: 'icons/draekhar.svg', carmesyne: 'icons/carmesyne.svg',
-  skarn: 'icons/skarn.svg', umbrellis: 'icons/umbrellis.svg', eventos: 'icons/evento.svg', invasao: 'icons/invasao.svg', normal: 'icons/default.svg'
+  skarn: 'icons/skarn.svg', umbrellis: 'icons/umbrellis.svg', eventos: 'icons/evento.svg', invasao: 'icons/invasao.svg', normal: 'icons/default.svg',
+  chefes: 'icons/chefe.svg'
 };
 
 // --- Coordenadas dos marcadores ---
 const pontos = [
-  { x: 3484, y: 4466, nome: "Mercado sombrio (Mestre das missões diárias)", tipo: "mercado" },
-  { x: 1211, y: 2293, nome: "Shemhazai (Conquista: A Essência da Luminância)", tipo: "conquista" },
-  { x: 4930, y: 2370, nome: "Chefe Mundial (WB)", tipo: "wb" },
-  { x: 4547, y: 2926, nome: "Chefe Mundial (WB)", tipo: "wb" },
-  { x: 4110, y: 3715, nome: "Piracema (Todos os dias às 19:30)", tipo: "eventos", icone: "icons/fish.svg" },
+  { x: 3484, y: 4466, nome: "<b>Mercado sombrio</b> (Mestre das missões diárias)", tipo: "mercado", link: "https://sangriafalls.com/mercado-sombrio/" },
+  { x: 1211, y: 2293, nome: "<b>Shemhazai</b> (Conquista: A Essência da Luminância)", tipo: "conquista", link: "https://sangriafalls.com/a-essencia-da-luminancia/" },
+  { x: 4930, y: 2370, nome: "<b>Chefe Mundial</b> (WB)", tipo: "wb", link: "https://sangriafalls.com/boss-mundial/" },
+  { x: 4547, y: 2926, nome: "<b>Chefe Mundial</b> (WB)", tipo: "wb", link: "https://sangriafalls.com/boss-mundial/" },
+  { x: 4105, y: 3725, nome: "<b>Piracema</b> (Todos os dias às 19:30)", tipo: "eventos", icone: "icons/fish.svg", link: "https://sangriafalls.com/piracema/" },
   { x: 3679, y: 4255, nome: "Coliseu PVP ⚔️", tipo: "eventos", icone: "icons/coliseu.svg" },
-  { x: 3293, y: 3920, nome: "<b>Classe:</b> Noctarin", tipo: "noctarin" },
-  { x: 3138, y: 3640, nome: "<b>Evolução:</b> Noctarin", tipo: "noctarin" },
-  { x: 4730, y: 3525, nome: "<b>Classe:</b> Mortak", tipo: "mortak" },
-  { x: 982, y: 2815, nome: "<b>Evolução:</b> Mortak", tipo: "mortak" },
-  { x: 3120, y: 4105, nome: "<b>Classe:</b> Sepulkros", tipo: "sepulkros" },
-  { x: 3945, y: 5175, nome: "<b>Evolução:</b> Sepulkros", tipo: "sepulkros" },
-  { x: 1260, y: 2700, nome: "<b>Classe:</b> Bastien", tipo: "bastien" },
-  { x: 1560, y: 2680, nome: "<b>Evolução:</b> Bastien", tipo: "bastien" },
-  { x: 3780, y: 2655, nome: "<b>Classe:</b> Draekhar", tipo: "draekhar" },
-  { x: 4263, y: 1190, nome: "<b>Evolução:</b> Draekhar", tipo: "draekhar" },
-  { x: 4232, y: 1490, nome: "<b>Classe:</b> Skarn", tipo: "skarn" },
-  { x: 2414, y: 1430, nome: "<b>Evolução:</b> Skarn", tipo: "skarn" },
-  { x: 2996, y: 1010, nome: "<b>Classe:</b> Carmesyne", tipo: "carmesyne" },
-  { x: 2193, y: 1150, nome: "<b>Evolução:</b> Carmesyne", tipo: "carmesyne" },
-  { x: 3257, y: 3153, nome: "<b>Classe:</b> Umbrellis", tipo: "umbrellis" },
-  { x: 1060, y: 1410, nome: "<b>Evolução:</b> Umbrellis", tipo: "umbrellis" },
-  { x: 5394, y: 2465, nome: "Invasão Solarus - Solarus", tipo: "invasao", icone: 'icons/invasao.svg' },
-  { x: 4331, y: 2975, nome: "Invasão Solarus - Azariel", tipo: "invasao", icone: 'icons/invasao.svg' },
-  { x: 640, y: 1415, nome: "Invasão Solarus - Raziel", tipo: "invasao", icone: 'icons/invasao.svg' },
-  { x: 4485, y: 2286, nome: "Invasão Megara - Jakira", tipo: "invasao", icone: 'icons/invasao.svg' },
-  { x: 936, y: 2880, nome: "Invasão Megara - Stravos", tipo: "invasao", icone: 'icons/invasao.svg' },
-  { x: 973, y: 1850, nome: "Invasão Drácula - Cassius", tipo: "invasao", icone: 'icons/invasao.svg' },
-  { x: 1252, y: 2811, nome: "Invasão Drácula - Valencia", tipo: "invasao", icone: 'icons/invasao.svg' },
-  { x: 2724, y: 4535, nome: "Invasão Drácula - Drácula", tipo: "invasao", icone: 'icons/invasao.svg' }
+  { x: 3293, y: 3920, nome: "<b>Classe:</b> Noctarin", tipo: "noctarin", link: "https://sangriafalls.com/noctarin/" },
+  { x: 3138, y: 3640, nome: "<b>Evolução:</b> Noctarin", tipo: "noctarin", link: "https://sangriafalls.com/noctarin/" },
+  { x: 4730, y: 3525, nome: "<b>Classe:</b> Mortak", tipo: "mortak", link: "https://sangriafalls.com/mortak/" },
+  { x: 982, y: 2815, nome: "<b>Evolução:</b> Mortak", tipo: "mortak", link: "https://sangriafalls.com/mortak/" },
+  { x: 3120, y: 4105, nome: "<b>Classe:</b> Sepulkros", tipo: "sepulkros", link: "https://sangriafalls.com/sepulkros/" },
+  { x: 3945, y: 5175, nome: "<b>Evolução:</b> Sepulkros", tipo: "sepulkros", link: "https://sangriafalls.com/sepulkros/" },
+  { x: 1260, y: 2700, nome: "<b>Classe:</b> Bastien", tipo: "bastien", link: "https://sangriafalls.com/bastien/" },
+  { x: 1560, y: 2680, nome: "<b>Evolução:</b> Bastien", tipo: "bastien", link: "https://sangriafalls.com/bastien/" },
+  { x: 3780, y: 2655, nome: "<b>Classe:</b> Draekhar", tipo: "draekhar", link: "https://sangriafalls.com/draekhar/" },
+  { x: 4263, y: 1190, nome: "<b>Evolução:</b> Draekhar", tipo: "draekhar", link: "https://sangriafalls.com/draekhar/" },
+  { x: 4232, y: 1490, nome: "<b>Classe:</b> Skarn", tipo: "skarn", link: "https://sangriafalls.com/skarn/" },
+  { x: 2414, y: 1430, nome: "<b>Evolução:</b> Skarn", tipo: "skarn", link: "https://sangriafalls.com/skarn/" },
+  { x: 2996, y: 1010, nome: "<b>Classe:</b> Carmesyne", tipo: "carmesyne", link: "https://sangriafalls.com/carmesyne/" },
+  { x: 2193, y: 1150, nome: "<b>Evolução:</b> Carmesyne", tipo: "carmesyne", link: "https://sangriafalls.com/carmesyne/" },
+  { x: 3257, y: 3153, nome: "<b>Evolução:</b> Umbrellis", tipo: "umbrellis", link: "https://sangriafalls.com/umbrellis/" },
+  { x: 1060, y: 1410, nome: "<b>Classe:</b> Umbrellis", tipo: "umbrellis", link: "https://sangriafalls.com/umbrellis/" },
+  { x: 5394, y: 2465, nome: "<b>Invasão</b> Solarus - Solarus", tipo: "invasao", icone: 'icons/invasao.svg', link: "https://sangriafalls.com/invasoes/" },
+  { x: 4331, y: 2975, nome: "<b>Invasão</b> Solarus - Azariel", tipo: "invasao", icone: 'icons/invasao.svg', link: "https://sangriafalls.com/invasoes/" },
+  { x: 640, y: 1415, nome: "<b>Invasão</b> Solarus - Raziel", tipo: "invasao", icone: 'icons/invasao.svg', link: "https://sangriafalls.com/invasoes/" },
+  { x: 4485, y: 2286, nome: "<b>Invasão</b> Megara - Jakira", tipo: "invasao", icone: 'icons/invasao.svg', link: "https://sangriafalls.com/invasoes/" },
+  { x: 936, y: 2880, nome: "<b>Invasão</b> Megara - Stravos", tipo: "invasao", icone: 'icons/invasao.svg', link: "https://sangriafalls.com/invasoes/" },
+  { x: 973, y: 1850, nome: "<b>Invasão</b> Drácula - Cassius", tipo: "invasao", icone: 'icons/invasao.svg', link: "https://sangriafalls.com/invasoes/" },
+  { x: 1252, y: 2811, nome: "<b>Invasão</b> Drácula - Valencia", tipo: "invasao", icone: 'icons/invasao.svg', link: "https://sangriafalls.com/invasoes/" },
+  { x: 2724, y: 4535, nome: "<b>Invasão</b> Drácula - Drácula", tipo: "invasao", icone: 'icons/invasao.svg', link: "https://sangriafalls.com/invasoes/" },
+  { x: 3292, y: 4530, nome: "Alfa, o Lobo Branco", tipo: "chefes"},
+  { x: 2796, y: 4674, nome: "Alfa, o Lobo Branco", tipo: "chefes"},
+  { x: 3710, y: 4005, nome: "Keely, a Arqueira Gélida", tipo: "chefes"},
+  { x: 2663, y: 4250, nome: "Errol, o Quebra-Pedras", tipo: "chefes"},
+  { x: 3326, y: 4400, nome: "Rufus, o Capataz", tipo: "chefes"},
+  { x: 3505, y: 4332, nome: "Lidia, a Arqueira do Caos", tipo: "chefes"},
+  { x: 2660, y: 4780, nome: "Goreswine, o Devastador", tipo: "chefes"},
+  { x: 2397, y: 4105, nome: "Grayson, o Armeiro", tipo: "chefes"},
+  { x: 1743, y: 3715, nome: "Polora, a Caminhante Feérica", tipo: "chefes"},
+  { x: 3044, y: 3945, nome: "Nicolau, o Caído", tipo: "chefes"},
+  { x: 2977, y: 3745, nome: "Quincey, o Rei dos Bandidos", tipo: "chefes"},
+  { x: 4326, y: 4325, nome: "Kodia, a Ursa Feroz", tipo: "chefes"},
+  { x: 4108, y: 3725, nome: "Finn, o Pescador", tipo: "chefes"},
+  { x: 4398, y: 3975, nome: "Talzur, o Horror Alado", tipo: "chefes"},
+  { x: 1500, y: 4350, nome: "Clive, o Incendiário", tipo: "chefes"},
+  { x: 2850, y: 4335, nome: "Tristan, o Caçador de Vampiros", tipo: "chefes"},
+  { x: 3019, y: 4899, nome: "Nibbles, o Rato Pútrido", tipo: "chefes"},
+  { x: 3650, y: 3050, nome: "Beatrice, a Costureira", tipo: "chefes"},
+  { x: 3583, y: 2950, nome: "Christina, a Sacerdotisa do Sol", tipo: "chefes"},
+  { x: 3112, y: 2935, nome: "Vincent, o Portador do Gelo", tipo: "chefes"},
+  { x: 2124, y: 3050, nome: "Sir Erwin, o Cavaleiro Galante", tipo: "chefes"},
 ];
 
 // --- Categorias dos marcadores ---
@@ -83,7 +110,8 @@ const categorias = {
   invasao: '<i class="fa-solid fa-ghost"></i> Invasões', normal: '<i class="fa-solid fa-location-dot"></i> Outros',
   sepulkros: '<i class="fa-solid fa-crow"></i> Sepulkros', noctarin: '<i class="fa-solid fa-leaf"></i> Noctarin', bastien: '<i class="fa-solid fa-shield-halved"></i> Bastien',
   mortak: '<i class="fa-solid fa-chess-knight"></i> Mortak', draekhar: '<i class="fa-solid fa-hat-wizard"></i> Draekhar', carmesyne: '<i class="fa-solid fa-crosshairs"></i> Carmesyne',
-  skarn: '<i class="fa-solid fa-drumstick-bite"></i> Skarn', umbrellis: '<i class="fa-solid fa-skull-crossbones"></i> Umbrellis', eventos: '<i class="fa-solid fa-calendar"></i> Eventos'
+  skarn: '<i class="fa-solid fa-drumstick-bite"></i> Skarn', umbrellis: '<i class="fa-solid fa-skull-crossbones"></i> Umbrellis', eventos: '<i class="fa-solid fa-calendar"></i> Eventos',
+  chefes: '<i class="fa-solid fa-dragon"></i> Chefes'
 };
 
 const grupos = {};
@@ -91,15 +119,15 @@ const listaDiv = document.getElementById("lista-marcadores");
 
 pontos.forEach(p => {
   const iconUrl = p.icone ? p.icone : (iconDefaults[p.tipo] || iconDefaults.normal);
-  const size = p.size ? p.size : 28;
+  const size = p.size ? p.size : 26;
   const icon = criarIcone(iconUrl, size);
 
   const conteudoPopup = `
     <div class="popup-card">
-      <h2>${p.nome}</h2>
+      ${p.link ? `<a href="${p.link}" target="_blank">${p.nome}</a>` : `<h2>${p.nome}</h2>`} 
       <hr>
       <p><strong>Categoria:</strong> ${categorias[p.tipo] || "Outros"}</p>
-      <p><strong>Coordenadas:</strong> x:${p.x}, y:${p.y}</p>
+      <p><strong>Coordenadas:</strong> x: ${p.x}, y: ${p.y}</p>
     </div>
   `;
 
@@ -119,7 +147,15 @@ function checkIfNoMarkersVisible() {
   for (let tipo in grupos) {
     grupos[tipo].forEach(marker => { if (map.hasLayer(marker)) algumVisivel = true; });
   }
-  if (!algumVisivel) map.fitBounds(bounds);
+  
+  if (algumVisivel) {
+    document.getElementById("showAll").classList.add("active");
+    document.getElementById("hideAll").classList.remove("active");
+  } else {
+    document.getElementById("hideAll").classList.add("active");
+    document.getElementById("showAll").classList.remove("active");
+    map.fitBounds(bounds);
+  }
 }
 
 function toggleMarker(marker, li) {
@@ -143,16 +179,24 @@ function criarCategoria(tipo, markers) {
 
   const titulo = document.createElement("h4");
 
-
   const textoTitulo = document.createElement("span");
   textoTitulo.innerHTML = categorias[tipo] || tipo;
 
+  const eyeIcon = document.createElement("span");
+  eyeIcon.className = "eye-icon";
+  eyeIcon.innerHTML = '<i class="fa-solid fa-eye"></i>';
+  
   const toggleIcon = document.createElement("span");
   toggleIcon.className = "toggle-icon";
   toggleIcon.innerHTML = '<i class="fa-solid fa-plus"></i>';
 
+  const iconContainer = document.createElement("div");
+  iconContainer.className = "icon-container";
+  iconContainer.appendChild(eyeIcon);
+  iconContainer.appendChild(toggleIcon);
+
   titulo.appendChild(textoTitulo);
-  titulo.appendChild(toggleIcon);
+  titulo.appendChild(iconContainer);
 
   const ul = document.createElement("ul");
   ul.classList.add("lista-marcadores");
@@ -167,17 +211,44 @@ function criarCategoria(tipo, markers) {
     ul.appendChild(li);
   });
 
-  const toggleCategoria = () => {
+  const toggleLista = () => {
     const estavaVisivel = ul.classList.contains("visible");
     ul.classList.toggle("visible");
     toggleIcon.innerHTML = estavaVisivel ? '<i class="fa-solid fa-plus"></i>' : '<i class="fa-solid fa-minus"></i>';
   };
 
-  // Adiciona o evento de clique tanto no título quanto no ícone
-  titulo.addEventListener("click", toggleCategoria);
-  toggleIcon.addEventListener("click", (e) => {
-    e.stopPropagation(); // Evita duplo trigger quando clicar no ícone
-    toggleCategoria();
+  const toggleVisibilidade = () => {
+    const todosVisiveis = markers.every(marker => map.hasLayer(marker));
+    
+    if (todosVisiveis) {
+      markers.forEach(marker => {
+        map.removeLayer(marker);
+        if (marker._li) {
+          marker._li.dataset.visible = "false";
+          marker._li.classList.add("hidden-marker");
+        }
+      });
+      eyeIcon.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+    } else {
+      markers.forEach(marker => {
+        if (!map.hasLayer(marker)) marker.addTo(map);
+        if (marker._li) {
+          marker._li.dataset.visible = "true";
+          marker._li.classList.remove("hidden-marker");
+        }
+      });
+      eyeIcon.innerHTML = '<i class="fa-solid fa-eye"></i>';
+    }
+    checkIfNoMarkersVisible();
+  };
+
+  toggleIcon.addEventListener("click", toggleLista);
+  eyeIcon.addEventListener("click", toggleVisibilidade);
+  
+  titulo.addEventListener("click", (e) => {
+    if (e.target === titulo || e.target === textoTitulo) {
+      toggleLista();
+    }
   });
 
   div.appendChild(titulo);
@@ -200,6 +271,11 @@ function setAllMarkers(visible) {
       }
     });
   }
+
+  document.querySelectorAll('.eye-icon').forEach(eyeIcon => {
+    eyeIcon.innerHTML = visible ? '<i class="fa-solid fa-eye"></i>' : '<i class="fa-solid fa-eye-slash"></i>';
+  });
+
   checkIfNoMarkersVisible();
 }
 
