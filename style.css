@@ -223,6 +223,7 @@ header {
 
 .categoria {
   margin-bottom: 10px;
+  transition: background 0.3s ease-in-out;
 }
 
 .categoria h4 {
@@ -453,25 +454,33 @@ footer>div:not(.red-bar) {
 
 }
 
-.leaflet-control-zoom.leaflet-bar.leaflet-control a{
+.leaflet-control-zoom.leaflet-bar.leaflet-control a {
   filter: invert();
 }
 
 .icon-container {
   display: flex;
-  gap: 8px;
+  gap: 2px;
   margin-left: auto;
 }
 
-.eye-icon, .toggle-icon {
+.eye-icon,
+.toggle-icon {
   cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-.eye-icon:hover, .toggle-icon:hover {
+.eye-icon:hover,
+.toggle-icon:hover {
   opacity: 0.8;
 }
 
 h4 {
   display: flex;
   align-items: center;
+}
+
+.gray {
+  color: #ffffff41 !important;
 }

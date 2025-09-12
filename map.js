@@ -81,52 +81,52 @@ const pontos = [
   { x: 973, y: 1850, nome: "<b>Invasão</b> Drácula - Cassius", tipo: "invasao", icone: 'icons/invasao.svg', link: "https://sangriafalls.com/invasoes/" },
   { x: 1252, y: 2811, nome: "<b>Invasão</b> Drácula - Valencia", tipo: "invasao", icone: 'icons/invasao.svg', link: "https://sangriafalls.com/invasoes/" },
   { x: 2724, y: 4535, nome: "<b>Invasão</b> Drácula - Drácula", tipo: "invasao", icone: 'icons/invasao.svg', link: "https://sangriafalls.com/invasoes/" },
-  { x: 3292, y: 4530, nome: "Alfa, o Lobo Branco", tipo: "chefes"},
-  { x: 2796, y: 4674, nome: "Alfa, o Lobo Branco", tipo: "chefes"},
-  { x: 3710, y: 4005, nome: "Keely, a Arqueira Gélida", tipo: "chefes"},
-  { x: 2663, y: 4250, nome: "Errol, o Quebra-Pedras", tipo: "chefes"},
-  { x: 3326, y: 4400, nome: "Rufus, o Capataz", tipo: "chefes"},
-  { x: 3505, y: 4332, nome: "Lidia, a Arqueira do Caos", tipo: "chefes"},
-  { x: 2660, y: 4780, nome: "Goreswine, o Devastador", tipo: "chefes"},
-  { x: 2397, y: 4105, nome: "Grayson, o Armeiro", tipo: "chefes"},
-  { x: 1743, y: 3715, nome: "Polora, a Caminhante Feérica", tipo: "chefes"},
-  { x: 3044, y: 3945, nome: "Nicolau, o Caído", tipo: "chefes"},
-  { x: 2977, y: 3745, nome: "Quincey, o Rei dos Bandidos", tipo: "chefes"},
-  { x: 4326, y: 4325, nome: "Kodia, a Ursa Feroz", tipo: "chefes"},
-  { x: 4108, y: 3725, nome: "Finn, o Pescador", tipo: "chefes"},
-  { x: 4398, y: 3975, nome: "Talzur, o Horror Alado", tipo: "chefes"},
-  { x: 1500, y: 4350, nome: "Clive, o Incendiário", tipo: "chefes"},
-  { x: 2850, y: 4335, nome: "Tristan, o Caçador de Vampiros", tipo: "chefes"},
-  { x: 3019, y: 4899, nome: "Nibbles, o Rato Pútrido", tipo: "chefes"},
-  { x: 3650, y: 3050, nome: "Beatrice, a Costureira", tipo: "chefes"},
-  { x: 3583, y: 2950, nome: "Christina, a Sacerdotisa do Sol", tipo: "chefes"},
-  { x: 3112, y: 2935, nome: "Vincent, o Portador do Gelo", tipo: "chefes"},
-  { x: 2124, y: 3050, nome: "Sir Erwin, o Cavaleiro Galante", tipo: "chefes"},
-  { x: 2481, y: 2700, nome: "Raziel, o Pastor", tipo: "chefes"},
-  { x: 2465, y: 2380, nome: "Terah, a Geomante", tipo: "chefes"},
-  { x: 3024, y: 3420, nome: "Kriig, o General dos Mortos-Vivos", tipo: "chefes"},
-  { x: 2966, y: 3127, nome: "Meredith, a Arqueira Brilhante", tipo: "chefes"},
-  { x: 3327, y: 2330, nome: "Octavian, o Capitão da Milícia", tipo: "chefes"},
-  { x: 3396, y: 2060, nome: "Leandra, a Sacerdotisa das Sombras", tipo: "chefes"},
-  { x: 3756, y: 2320, nome: "Gaius, o Campeão Amaldiçoado", tipo: "chefes"},
-  { x: 4024, y: 2300, nome: "Maja, a Sábia das Trevas", tipo: "chefes"},
-  { x: 2810, y: 3014, nome: "Bane, o Lâmina Sombria", tipo: "chefes"},
-  { x: 2868, y: 2842, nome: "Jade, a Caçadora de Vampiros", tipo: "chefes"},
-  { x: 2303, y: 2009, nome: "Grethel, a Sopradora de Vidro", tipo: "chefes"},
-  { x: 2980, y: 1889, nome: "Lorde Styx, o Campeão da Noite", tipo: "chefes"},
-  { x: 3669, y: 1776, nome: "Willfred, o Ancião da Aldeia", tipo: "chefes"},
-  { x: 4363, y: 3403, nome: "Frostmaw, o Terror da Montanha", tipo: "chefes"},
-  { x: 4636, y: 3700, nome: "Terrorclaw, o Ogro", tipo: "chefes"},
-  { x: 1795, y: 3061, nome: "Mairwyn, a Elementalista", tipo: "chefes"},
-  { x: 1839, y: 2730, nome: "Solarus, o Imaculado", tipo: "chefes"},
-  { x: 1350, y: 2845, nome: "Barão du Bouchon, o Sommelier", tipo: "chefes"},
-  { x: 768, y: 2742, nome: "Azariel, o Arauto do Sol", tipo: "chefes"},
-  { x: 1420, y: 3120, nome: "Morian, a Matriarca das Stormwing", tipo: "chefes"},
-  { x: 1107, y: 2463, nome: "Sir Magnus, o Supervisor", tipo: "chefes"},
-  { x: 752, y: 1465, nome: "Stravos, o Entalhador", tipo: "chefes"},
-  { x: 975, y: 1460, nome: "Lucile, a Alquimista Venenosa", tipo: "chefes"},
-  { x: 1045, y: 800, nome: "Dantos, o Mestre da Forja", tipo: "chefes"},
-  { x: 1420, y: 726, nome: "Megara, a Rainha Serpente", tipo: "chefes"},
+  { x: 3292, y: 4530, nome: "Alfa, o Lobo Branco", tipo: "chefes" },
+  { x: 2796, y: 4674, nome: "Alfa, o Lobo Branco", tipo: "chefes" },
+  { x: 3710, y: 4005, nome: "Keely, a Arqueira Gélida", tipo: "chefes" },
+  { x: 2663, y: 4250, nome: "Errol, o Quebra-Pedras", tipo: "chefes" },
+  { x: 3326, y: 4400, nome: "Rufus, o Capataz", tipo: "chefes" },
+  { x: 3505, y: 4332, nome: "Lidia, a Arqueira do Caos", tipo: "chefes" },
+  { x: 2660, y: 4780, nome: "Goreswine, o Devastador", tipo: "chefes" },
+  { x: 2397, y: 4105, nome: "Grayson, o Armeiro", tipo: "chefes" },
+  { x: 1743, y: 3715, nome: "Polora, a Caminhante Feérica", tipo: "chefes" },
+  { x: 3044, y: 3945, nome: "Nicolau, o Caído", tipo: "chefes" },
+  { x: 2977, y: 3745, nome: "Quincey, o Rei dos Bandidos", tipo: "chefes" },
+  { x: 4326, y: 4325, nome: "Kodia, a Ursa Feroz", tipo: "chefes" },
+  { x: 4108, y: 3725, nome: "Finn, o Pescador", tipo: "chefes" },
+  { x: 4398, y: 3975, nome: "Talzur, o Horror Alado", tipo: "chefes" },
+  { x: 1500, y: 4350, nome: "Clive, o Incendiário", tipo: "chefes" },
+  { x: 2850, y: 4335, nome: "Tristan, o Caçador de Vampiros", tipo: "chefes" },
+  { x: 3019, y: 4899, nome: "Nibbles, o Rato Pútrido", tipo: "chefes" },
+  { x: 3650, y: 3050, nome: "Beatrice, a Costureira", tipo: "chefes" },
+  { x: 3583, y: 2950, nome: "Christina, a Sacerdotisa do Sol", tipo: "chefes" },
+  { x: 3112, y: 2935, nome: "Vincent, o Portador do Gelo", tipo: "chefes" },
+  { x: 2124, y: 3050, nome: "Sir Erwin, o Cavaleiro Galante", tipo: "chefes" },
+  { x: 2481, y: 2700, nome: "Raziel, o Pastor", tipo: "chefes" },
+  { x: 2465, y: 2380, nome: "Terah, a Geomante", tipo: "chefes" },
+  { x: 3024, y: 3420, nome: "Kriig, o General dos Mortos-Vivos", tipo: "chefes" },
+  { x: 2966, y: 3127, nome: "Meredith, a Arqueira Brilhante", tipo: "chefes" },
+  { x: 3327, y: 2330, nome: "Octavian, o Capitão da Milícia", tipo: "chefes" },
+  { x: 3396, y: 2060, nome: "Leandra, a Sacerdotisa das Sombras", tipo: "chefes" },
+  { x: 3756, y: 2320, nome: "Gaius, o Campeão Amaldiçoado", tipo: "chefes" },
+  { x: 4024, y: 2300, nome: "Maja, a Sábia das Trevas", tipo: "chefes" },
+  { x: 2810, y: 3014, nome: "Bane, o Lâmina Sombria", tipo: "chefes" },
+  { x: 2868, y: 2842, nome: "Jade, a Caçadora de Vampiros", tipo: "chefes" },
+  { x: 2303, y: 2009, nome: "Grethel, a Sopradora de Vidro", tipo: "chefes" },
+  { x: 2980, y: 1889, nome: "Lorde Styx, o Campeão da Noite", tipo: "chefes" },
+  { x: 3669, y: 1776, nome: "Willfred, o Ancião da Aldeia", tipo: "chefes" },
+  { x: 4363, y: 3403, nome: "Frostmaw, o Terror da Montanha", tipo: "chefes" },
+  { x: 4636, y: 3700, nome: "Terrorclaw, o Ogro", tipo: "chefes" },
+  { x: 1795, y: 3061, nome: "Mairwyn, a Elementalista", tipo: "chefes" },
+  { x: 1839, y: 2730, nome: "Solarus, o Imaculado", tipo: "chefes" },
+  { x: 1350, y: 2845, nome: "Barão du Bouchon, o Sommelier", tipo: "chefes" },
+  { x: 768, y: 2742, nome: "Azariel, o Arauto do Sol", tipo: "chefes" },
+  { x: 1420, y: 3120, nome: "Morian, a Matriarca das Stormwing", tipo: "chefes" },
+  { x: 1107, y: 2463, nome: "Sir Magnus, o Supervisor", tipo: "chefes" },
+  { x: 752, y: 1465, nome: "Stravos, o Entalhador", tipo: "chefes" },
+  { x: 975, y: 1460, nome: "Lucile, a Alquimista Venenosa", tipo: "chefes" },
+  { x: 1045, y: 800, nome: "Dantos, o Mestre da Forja", tipo: "chefes" },
+  { x: 1420, y: 726, nome: "Megara, a Rainha Serpente", tipo: "chefes" },
 ];
 
 // --- Categorias dos marcadores ---
@@ -172,7 +172,7 @@ function checkIfNoMarkersVisible() {
   for (let tipo in grupos) {
     grupos[tipo].forEach(marker => { if (map.hasLayer(marker)) algumVisivel = true; });
   }
-  
+
   if (algumVisivel) {
     document.getElementById("showAll").classList.add("active");
     document.getElementById("hideAll").classList.remove("active");
@@ -210,7 +210,7 @@ function criarCategoria(tipo, markers) {
   const eyeIcon = document.createElement("span");
   eyeIcon.className = "eye-icon";
   eyeIcon.innerHTML = '<i class="fa-solid fa-eye"></i>';
-  
+
   const toggleIcon = document.createElement("span");
   toggleIcon.className = "toggle-icon";
   toggleIcon.innerHTML = '<i class="fa-solid fa-plus"></i>';
@@ -244,7 +244,7 @@ function criarCategoria(tipo, markers) {
 
   const toggleVisibilidade = () => {
     const todosVisiveis = markers.every(marker => map.hasLayer(marker));
-    
+
     if (todosVisiveis) {
       markers.forEach(marker => {
         map.removeLayer(marker);
@@ -253,7 +253,7 @@ function criarCategoria(tipo, markers) {
           marker._li.classList.add("hidden-marker");
         }
       });
-      eyeIcon.innerHTML = '<i class="fa-solid fa-eye-slash"></i>';
+      eyeIcon.innerHTML = '<i class="fa-solid fa-eye-slash gray"></i>';
     } else {
       markers.forEach(marker => {
         if (!map.hasLayer(marker)) marker.addTo(map);
@@ -269,7 +269,7 @@ function criarCategoria(tipo, markers) {
 
   toggleIcon.addEventListener("click", toggleLista);
   eyeIcon.addEventListener("click", toggleVisibilidade);
-  
+
   titulo.addEventListener("click", (e) => {
     if (e.target === titulo || e.target === textoTitulo) {
       toggleLista();
@@ -280,7 +280,30 @@ function criarCategoria(tipo, markers) {
   div.appendChild(ul);
   return div;
 }
+const size = map.getSize();
+console.log('Largura do mapa:', size.x, 'Altura do mapa:', size.y);
 
+const lat_min = -2, lat_max = 0;
+const lng_min = 2, lng_max = 100;
+const map_width = 6140, map_height = 6140;
+
+function toCRS(lat, lng) {
+  const y = (lat_max - lat) / (lat_max - lat_min) * map_height;
+  const x = (lng - lng_min) / (lng_max - lng_min) * map_width;
+  return [y, x];
+}
+
+const convertPathLoc = (path) =>
+  path.map(pair => map.unproject(pair, map.getMaxZoom()))
+
+var latlngs = [
+  [2400, 4626],
+  [2484, 4631],
+  [2523, 4643],
+  [2598, 4640],
+];
+
+var polyline = L.polyline(convertPathLoc(latlngs), { color: 'red' }).addTo(map);
 for (let tipo in grupos) {
   listaDiv.appendChild(criarCategoria(tipo, grupos[tipo]));
 }
