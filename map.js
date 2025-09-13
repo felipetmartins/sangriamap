@@ -42,18 +42,18 @@ function criarIcone(url, size = 32) {
 
 // --- Dados dos marcadores ---
 const iconDefaults = {
-  wb: 'icons/wb.svg', mercado: 'icons/mercado.svg', conquista: 'icons/conquista.svg',
+  wb: 'icons/wb.svg', mercado: 'icons/mercado.svg', shemhazai: 'icons/shemhazai.svg',
   sepulkros: 'icons/sepulkros.svg', noctarin: 'icons/noctarin.svg', bastien: 'icons/bastien.svg',
   mortak: 'icons/mortak.svg', draekhar: 'icons/draekhar.svg', carmesyne: 'icons/carmesyne.svg',
   skarn: 'icons/skarn.svg', umbrellis: 'icons/umbrellis.svg', eventos: 'icons/evento.svg', invasao: 'icons/invasao.svg', normal: 'icons/default.svg',
-  chefes: 'icons/chefe.svg'
+  chefes: 'icons/chefe.svg', rathma: 'icons/rathma.svg'
 };
 
 // --- Coordenadas dos marcadores ---
 const pontos = [
   { x: 3484, y: 4466, nome: "<b>Mercado sombrio</b> (Mestre das missões diárias)", tipo: "mercado", link: "https://sangriafalls.com/mercado-sombrio/" },
-  { x: 1211, y: 2293, nome: "<b>Shemhazai</b> (Conquista: A Essência da Luminância)", tipo: "conquista", link: "https://sangriafalls.com/a-essencia-da-luminancia/" },
-  { x: 2587, y: 3175, nome: "<b>Rathma</b> (Conquista: Filho de Thanatos)", tipo: "conquista", link: "https://sangriafalls.com/filho-de-thanatos/" },
+  { x: 1211, y: 2293, nome: "<b>Shemhazai</b> - A Essência da Luminância", tipo: "conquista",  icone: 'icons/shemhazai.svg', link: "https://sangriafalls.com/a-essencia-da-luminancia/" },
+  { x: 2587, y: 3175, nome: "<b>Rathma</b> - Filho de Thanatos", tipo: "conquista", icone: 'icons/rathma.svg', link: "https://sangriafalls.com/filho-de-thanatos/" },
   { x: 4930, y: 2370, nome: "<b>Chefe Mundial</b> (WB)", tipo: "wb", link: "https://sangriafalls.com/boss-mundial/" },
   { x: 4547, y: 2926, nome: "<b>Chefe Mundial</b> (WB)", tipo: "wb", link: "https://sangriafalls.com/boss-mundial/" },
   { x: 4105, y: 3725, nome: "<b>Piracema</b> (Todos os dias às 19:30)", tipo: "eventos", icone: "icons/fish.svg", link: "https://sangriafalls.com/piracema/" },
@@ -153,22 +153,22 @@ const categorias = {
   sepulkros: '<i class="fa-solid fa-crow"></i> Sepulkros', noctarin: '<i class="fa-solid fa-leaf"></i> Noctarin', bastien: '<i class="fa-solid fa-shield-halved"></i> Bastien',
   mortak: '<i class="fa-solid fa-chess-knight"></i> Mortak', draekhar: '<i class="fa-solid fa-hat-wizard"></i> Draekhar', carmesyne: '<i class="fa-solid fa-crosshairs"></i> Carmesyne',
   skarn: '<i class="fa-solid fa-drumstick-bite"></i> Skarn', umbrellis: '<i class="fa-solid fa-skull-crossbones"></i> Umbrellis', eventos: '<i class="fa-solid fa-calendar"></i> Eventos',
-  
+  chefes: '<i class="fa-solid fa-crown"></i> Chefes'
 };
 
 const ordemCategorias = [
   'chefes',      // Chefes
-  'conquista',   // Conquistas
   'wb',          // Chefe Mundial
+  'conquista',   // Conquistas
   'eventos',     // Eventos
   'mercado',     // Mercado
   'invasao',     // Invasões
-  'sepulkros',
-  'noctarin',
   'bastien',
-  'mortak',
-  'draekhar',
   'carmesyne',
+  'draekhar',
+  'mortak',
+  'noctarin',
+  'sepulkros',
   'skarn',
   'umbrellis',
   'normal'
@@ -336,8 +336,18 @@ var latlngs = [
 ];
 
 var polyline = L.polyline(convertPathLoc(latlngs), { color: 'red' }).addTo(map);
+
+ordemCategorias.forEach(cat => {
+  if (grupos[cat]) {
+    listaDiv.appendChild(criarCategoria(cat, grupos[cat]));
+  }
+});
+
+// se sobrar algum tipo que não estava em ordemCategorias
 for (let tipo in grupos) {
-  listaDiv.appendChild(criarCategoria(tipo, grupos[tipo]));
+  if (!ordemCategorias.includes(tipo)) {
+    listaDiv.appendChild(criarCategoria(tipo, grupos[tipo]));
+  }
 }
 
 function setAllMarkers(visible) {
@@ -387,3 +397,27 @@ function atualizarIcones() {
 }
 
 map.on("zoom", atualizarIcones);
+
+const searchInput = document.getElementById("searchMarkers");
+
+searchInput.addEventListener("input", () => {
+  const termo = searchInput.value.toLowerCase();
+
+  document.querySelectorAll(".categoria").forEach(categoria => {
+    let algumVisivel = false;
+
+    categoria.querySelectorAll("li").forEach(li => {
+      const texto = li.textContent.toLowerCase();
+
+      if (texto.includes(termo)) {
+        li.style.display = ""; // mostra
+        algumVisivel = true;
+      } else {
+        li.style.display = "none"; // esconde
+      }
+    });
+
+    // se nenhum li visível, esconde a categoria inteira
+    categoria.style.display = algumVisivel ? "" : "none";
+  });
+});
