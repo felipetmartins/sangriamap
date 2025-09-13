@@ -161,8 +161,8 @@ const ordemCategorias = [
   'wb',          // Chefe Mundial
   'conquista',   // Conquistas
   'eventos',     // Eventos
-  'mercado',     // Mercado
   'invasao',     // Invasões
+  'mercado',     // Mercado
   'bastien',
   'carmesyne',
   'draekhar',
@@ -363,7 +363,7 @@ function setAllMarkers(visible) {
   }
 
   document.querySelectorAll('.eye-icon').forEach(eyeIcon => {
-    eyeIcon.innerHTML = visible ? '<i class="fa-solid fa-eye"></i>' : '<i class="fa-solid fa-eye-slash"></i>';
+    eyeIcon.innerHTML = visible ? '<i class="fa-solid fa-eye"></i>' : '<i class="fa-solid fa-eye-slash gray"></i>';
   });
 
   checkIfNoMarkersVisible();
