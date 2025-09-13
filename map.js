@@ -65,7 +65,7 @@ const pontos = [
   { x: 3120, y: 4105, nome: "<b>Classe:</b> Sepulkros", tipo: "sepulkros", link: "https://sangriafalls.com/sepulkros/" },
   { x: 3945, y: 5175, nome: "<b>Evolução:</b> Sepulkros", tipo: "sepulkros", link: "https://sangriafalls.com/sepulkros/" },
   { x: 1260, y: 2700, nome: "<b>Classe:</b> Bastien", tipo: "bastien", link: "https://sangriafalls.com/bastien/" },
-  { x: 1560, y: 2680, nome: "<b>Evolução:</b> Bastien", tipo: "bastien", link: "https://sangriafalls.com/bastien/" },
+  { x: 1525, y: 2735, nome: "<b>Evolução:</b> Bastien", tipo: "bastien", link: "https://sangriafalls.com/bastien/" },
   { x: 3780, y: 2655, nome: "<b>Classe:</b> Draekhar", tipo: "draekhar", link: "https://sangriafalls.com/draekhar/" },
   { x: 4263, y: 1190, nome: "<b>Evolução:</b> Draekhar", tipo: "draekhar", link: "https://sangriafalls.com/draekhar/" },
   { x: 4232, y: 1490, nome: "<b>Classe:</b> Skarn", tipo: "skarn", link: "https://sangriafalls.com/skarn/" },
