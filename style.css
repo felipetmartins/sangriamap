@@ -463,17 +463,25 @@ footer>div:not(.red-bar) {
   margin-left: auto;
 }
 
-.eye-icon, .toggle-icon {
+.eye-icon,
+.toggle-icon {
   cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-.eye-icon:hover, .toggle-icon:hover {
+.eye-icon:hover,
+.toggle-icon:hover {
   opacity: 0.8;
 }
 
 h4 {
   display: flex;
   align-items: center;
+}
+
+.gray {
+  color: #ffffff41 !important;
 }
 
 #searchMarkers {
