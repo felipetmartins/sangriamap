@@ -143,6 +143,7 @@ const pontos = [
   { x: 4697, y: 1993, nome: "General Valencia, a Depravada", tipo: "chefes"},
   { x: 4732, y: 2747, nome: "General Elena, a Desprezível", tipo: "chefes"},
   { x: 4759, y: 2260, nome: "General Cassius, o Traidor", tipo: "chefes"},
+  { x: 1561, y: 3783, nome: "Simon Belmont, o Caçador de Vampiros", tipo: "chefes"},
   { x: 2050, y: 588, nome: "Adam, O Primogênito", tipo: "chefes"},
   { x: 5637, y: 2470, nome: "Drácula, o Rei Imortal", tipo: "chefes"}
 ];
