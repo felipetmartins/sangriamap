@@ -32,7 +32,7 @@ map.on('mousemove', e => {
 });
 
 const iconCache = {};
-function criarIcone(url, size = 32) {
+function criarIcone(url, size = 30) {
   const key = `${url}|${size}`;
   if (iconCache[key]) return iconCache[key];
   const ic = L.icon({ iconUrl: url, iconSize: [size, size], iconAnchor: [size / 2, size], popupAnchor: [0, -size] });
@@ -83,12 +83,12 @@ const pontos = [
   { x: 1252, y: 2811, nome: "<b>Invasão</b> Drácula - Valencia", tipo: "invasao", icone: 'icons/invasao.svg', link: "https://sangriafalls.com/invasoes/" },
   { x: 2724, y: 4535, nome: "<b>Invasão</b> Drácula - Drácula", tipo: "invasao", icone: 'icons/invasao.svg', link: "https://sangriafalls.com/invasoes/" },
   { x: 3292, y: 4530, nome: "Alfa, o Lobo Branco", tipo: "chefes" },
-  { x: 2796, y: 4674, nome: "Alfa, o Lobo Branco", tipo: "chefes" },
+  { x: 2796, y: 4680, nome: "Alfa, o Lobo Branco", tipo: "chefes" },
   { x: 3710, y: 4005, nome: "Keely, a Arqueira Gélida", tipo: "chefes" },
   { x: 2663, y: 4250, nome: "Errol, o Quebra-Pedras", tipo: "chefes" },
   { x: 3326, y: 4400, nome: "Rufus, o Capataz", tipo: "chefes" },
   { x: 3505, y: 4332, nome: "Lidia, a Arqueira do Caos", tipo: "chefes" },
-  { x: 2660, y: 4780, nome: "Goreswine, o Devastador", tipo: "chefes" },
+  { x: 2655, y: 4780, nome: "Goreswine, o Devastador", tipo: "chefes" },
   { x: 2397, y: 4105, nome: "Grayson, o Armeiro", tipo: "chefes" },
   { x: 1743, y: 3715, nome: "Polora, a Caminhante Feérica", tipo: "chefes" },
   { x: 3044, y: 3945, nome: "Nicolau, o Caído", tipo: "chefes" },
@@ -103,7 +103,7 @@ const pontos = [
   { x: 3583, y: 2950, nome: "Christina, a Sacerdotisa do Sol", tipo: "chefes" },
   { x: 3112, y: 2935, nome: "Vincent, o Portador do Gelo", tipo: "chefes" },
   { x: 2124, y: 3050, nome: "Sir Erwin, o Cavaleiro Galante", tipo: "chefes" },
-  { x: 2481, y: 2700, nome: "Raziel, o Pastor", tipo: "chefes" },
+  { x: 2481, y: 2695, nome: "Raziel, o Pastor", tipo: "chefes" },
   { x: 2465, y: 2380, nome: "Terah, a Geomante", tipo: "chefes" },
   { x: 3024, y: 3420, nome: "Kriig, o General dos Mortos-Vivos", tipo: "chefes" },
   { x: 2966, y: 3127, nome: "Meredith, a Arqueira Brilhante", tipo: "chefes" },
@@ -134,15 +134,16 @@ const pontos = [
   { x: 2358, y: 1614, nome: "Domina, a Dançarina das Lâminas", tipo: "chefes"},
   { x: 3045, y: 1053, nome: "Ziva, a Engenheira", tipo: "chefes"},
   { x: 3643, y: 1209, nome: "Ungora, a Aranha Rainha", tipo: "chefes"},
-  { x: 3910, y: 776, nome: "Albert, o Duque de Balaton", tipo: "chefes"},
+  { x: 3905, y: 770, nome: "Albert, o Duque de Balaton", tipo: "chefes"},
   { x: 4403, y: 1305, nome: "Ben, o Velho Andarilho", tipo: "chefes"},
-  { x: 4248, y: 1098, nome: "Cyril, o Ferreiro Amaldiçoado", tipo: "chefes"},
+  { x: 4243, y: 1093, nome: "Cyril, o Ferreiro Amaldiçoado", tipo: "chefes"},
   { x: 4391, y: 1100, nome: "Matka, a Tecelã de Maldições", tipo: "chefes"},
   { x: 4535, y: 1444, nome: "Foulrot, o Devorador de Almas", tipo: "chefes"},
   { x: 4364, y: 1508, nome: "Gorecrusher, o Colosso", tipo: "chefes"},
   { x: 4697, y: 1993, nome: "General Valencia, a Depravada", tipo: "chefes"},
   { x: 4732, y: 2747, nome: "General Elena, a Desprezível", tipo: "chefes"},
   { x: 4759, y: 2260, nome: "General Cassius, o Traidor", tipo: "chefes"},
+  { x: 2050, y: 588, nome: "Adam, O Primogênito", tipo: "chefes"},
   { x: 5637, y: 2470, nome: "Drácula, o Rei Imortal", tipo: "chefes"}
 ];
 
