@@ -453,7 +453,7 @@ footer>div:not(.red-bar) {
 
 }
 
-.leaflet-control-zoom.leaflet-bar.leaflet-control a{
+.leaflet-control-zoom.leaflet-bar.leaflet-control a {
   filter: invert();
 }
 
@@ -485,8 +485,7 @@ h4 {
 }
 
 #searchMarkers {
-  width: 93%;
-  max-width: 500px;
+  width: 100%;
   padding: 10px 15px;
   margin: 10px 0 20px;
   border-radius: 6px;
@@ -496,6 +495,8 @@ h4 {
   color: #fff;
   font-size: 15px;
   transition: background 0.3s, box-shadow 0.3s, color 0.3s;
+
+  outline: #cccccc80 2px solid;
 }
 
 #searchMarkers::placeholder {
@@ -504,6 +505,7 @@ h4 {
 
 #searchMarkers:focus {
   outline: none;
-  box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 0px 4px #ff282865;
   background: rgba(50, 50, 50, 0.8);
+  outline: #ff28287e  2px solid;
 }
