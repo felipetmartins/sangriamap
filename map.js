@@ -8,6 +8,7 @@ document.getElementById("toggleSidebar").addEventListener("click", (e) => {
   document.getElementById("toggleSidebar").innerHTML = isOpen ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>'
 });
 
+let activeMarker = undefined;
 // --- Inicialização do mapa ---
 const map = L.map('map', { crs: L.CRS.Simple, minZoom: 2, maxZoom: 5, center: [0, 0], zoom: 0 });
 const mapWidth = 6144, mapHeight = 6144;
@@ -200,9 +201,29 @@ pontos.forEach(p => {
     marker.openPopup()
   );
 
-  marker.on('mouseout', () =>
-    marker.closePopup()
+  marker.on('click', (e) => {
+    if (activeMarker != marker) {
+      marker.openPopup()
+      activeMarker = marker
+    } else {
+      marker.closePopup()
+      activeMarker = undefined
+    }
+    e.originalEvent.stopImmediatePropagation()
+  }
   );
+
+  marker.getPopup().on('remove', function () {
+    if (activeMarker == marker)
+      setTimeout(() => activeMarker = undefined, 100)
+    else activeMarker = undefined
+  });
+
+  marker.on('mouseout', () => {
+    if (activeMarker != marker) {
+      marker.closePopup()
+    }
+  });
 
   marker._tipo = p.tipo;
   marker._nome = p.nome;
@@ -327,7 +348,6 @@ function criarCategoria(tipo, markers) {
   return div;
 }
 const size = map.getSize();
-console.log('Largura do mapa:', size.x, 'Altura do mapa:', size.y);
 
 const lat_min = -2, lat_max = 0;
 const lng_min = 2, lng_max = 100;
