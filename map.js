@@ -85,6 +85,7 @@ const pontos = [
   { x: 2724, y: 4535, nome: "<b>Invasão</b> Drácula - Drácula", tipo: "invasao", icone: 'icons/invasao.svg', link: "https://sangriafalls.com/invasoes/" },
   { x: 3292, y: 4530, nome: "Alfa, o Lobo Branco", tipo: "chefes" },
   { x: 2796, y: 4680, nome: "Alfa, o Lobo Branco", tipo: "chefes" },
+  { x: 3124, y: 4219, nome: "Alfa, o Lobo Branco", tipo: "chefes" },
   { x: 3710, y: 4005, nome: "Keely, a Arqueira Gélida", tipo: "chefes" },
   { x: 2663, y: 4250, nome: "Errol, o Quebra-Pedras", tipo: "chefes" },
   { x: 3326, y: 4400, nome: "Rufus, o Capataz", tipo: "chefes" },
