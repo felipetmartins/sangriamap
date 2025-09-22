@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <title>Sangria Falls - Servidor de V Rising</title>
+  <link rel="icon" type="image/png" href="sangria.png" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/325cd98d96.js" crossorigin="anonymous"></script>
+  <link rel="icon" href="https://sangriafalls.com/wp-content/uploads/2025/06/cropped-sangriafallsicon-32x32.png"
+    sizes="32x32">
+  <link rel="icon" href="https://sangriafalls.com/wp-content/uploads/2025/06/cropped-sangriafallsicon-192x192.png"
+    sizes="192x192">
+  <link rel="apple-touch-icon"
+    href="https://sangriafalls.com/wp-content/uploads/2025/06/cropped-sangriafallsicon-180x180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Aboreto&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <div>
+      <img src="https://sangriafalls.com/wp-content/uploads/2025/06/cropped-sangriafallsicon-192x192.png" alt="">
+      <a href="https://sangriafalls.com/" target="_self">Sangria Falls RPG</a>
+    </div>
+    <button id="toggleSidebar"><i class="fa-solid fa-bars"></i></button>
+  </header>
+
+  <div class="relative-cont">
+    <div id="sidebar">
+      <h1 class="aboreto-regular">Segredos do Reino</h1>
+      <div class="search-container">
+        <input type="search" id="searchMarkers" placeholder="Pesquisar..." />
+      </div>
+      <div class="btn-group">
+        <button id="showAll" class="btn active">Mostrar</button>
+        <button id="hideAll" class="btn">Esconder</button>
+      </div>
+      <hr />
+      <div id="lista-marcadores"></div>
+    </div>
+    <div id="map"></div>
+    <div id="coords">x: 0, y: 0</div>
+
+  </div>
+  <footer>
+    <div>
+      <img src="https://sangriafalls.com/wp-content/uploads/2025/06/cropped-logo-png-1-1-300x234.png" alt=""
+        height="234" width="300">
+      <div class="ft-text">
+        <p class="ft-text" style="text-align: center;">Prepare-se para despertar como um verdadeiro
+          vampiro em <strong>Sangria Falls</strong>, o maior e mais ativo servidor de
+          <strong>V Rising</strong> da América Latina. Aqui, você encontrará uma
+          experiência única e totalmente personalizada, com <strong>diversos mods
+            exclusivos</strong>, eventos frequentes, sistemas únicos de progressão e uma comunidade engajada que vive
+          intensamente o mundo sombrio de Vardoran.
+        </p>
+        <br>
+        <p class="ft-text" style="text-align: center;">
+          Créditos pelo desenvolvimento: <a href="https://github.com/felipetmartins" target="_blank">Sanguinus</a>,
+          <a href="https://github.com/imakrp" target="_blank">Ataraxia</a>.
+        </p>
+      </div>
+      <div class="social">
+        <a href="https://discord.gg/sangriafalls" target="_blank">
+
+
+          <span class="elementor-icon-list-text"><svg aria-hidden="true" class="e-font-icon-svg e-fab-discord"
+              viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M297.216 243.2c0 15.616-11.52 28.416-26.112 28.416-14.336 0-26.112-12.8-26.112-28.416s11.52-28.416 26.112-28.416c14.592 0 26.112 12.8 26.112 28.416zm-119.552-28.416c-14.592 0-26.112 12.8-26.112 28.416s11.776 28.416 26.112 28.416c14.592 0 26.112-12.8 26.112-28.416.256-15.616-11.52-28.416-26.112-28.416zM448 52.736V512c-64.494-56.994-43.868-38.128-118.784-107.776l13.568 47.36H52.48C23.552 451.584 0 428.032 0 398.848V52.736C0 23.552 23.552 0 52.48 0h343.04C424.448 0 448 23.552 448 52.736zm-72.96 242.688c0-82.432-36.864-149.248-36.864-149.248-36.864-27.648-71.936-26.88-71.936-26.88l-3.584 4.096c43.52 13.312 63.744 32.512 63.744 32.512-60.811-33.329-132.244-33.335-191.232-7.424-9.472 4.352-15.104 7.424-15.104 7.424s21.248-20.224 67.328-33.536l-2.56-3.072s-35.072-.768-71.936 26.88c0 0-36.864 66.816-36.864 149.248 0 0 21.504 37.12 78.08 38.912 0 0 9.472-11.52 17.152-21.248-32.512-9.728-44.8-30.208-44.8-30.208 3.766 2.636 9.976 6.053 10.496 6.4 43.21 24.198 104.588 32.126 159.744 8.96 8.96-3.328 18.944-8.192 29.44-15.104 0 0-12.8 20.992-46.336 30.464 7.68 9.728 16.896 20.736 16.896 20.736 56.576-1.792 78.336-38.912 78.336-38.912z">
+              </path>
+            </svg>Discord</span>
+        </a>
+
+        <a href="https://www.youtube.com/@sangriafalls" target="_blank">
+
+          <span class="elementor-icon-list-text"><svg aria-hidden="true" class="e-font-icon-svg e-fab-youtube-square"
+              viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M186.8 202.1l95.2 54.1-95.2 54.1V202.1zM448 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h352c26.5 0 48 21.5 48 48zm-42 176.3s0-59.6-7.6-88.2c-4.2-15.8-16.5-28.2-32.2-32.4C337.9 128 224 128 224 128s-113.9 0-142.2 7.7c-15.7 4.2-28 16.6-32.2 32.4-7.6 28.5-7.6 88.2-7.6 88.2s0 59.6 7.6 88.2c4.2 15.8 16.5 27.7 32.2 31.9C110.1 384 224 384 224 384s113.9 0 142.2-7.7c15.7-4.2 28-16.1 32.2-31.9 7.6-28.5 7.6-88.1 7.6-88.1z">
+              </path>
+            </svg> YouTube</span>
+        </a>
+
+      </div>
+    </div>
+    <div class="red-bar">
+      Sangria Falls © 2025 - Todos direitos reservados
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="marcadores.js"></script>
+  <script src="categorias.js"></script>
+  <script src="map.js"></script>
+</body>
+
+</html>
