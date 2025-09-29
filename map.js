@@ -47,11 +47,10 @@ const iconDefaults = {
   wb: 'icons/wb.svg', mercado: 'icons/mercado.svg', shemhazai: 'icons/shemhazai.svg', sepulkros: 'icons/sepulkros.svg',
   noctarin: 'icons/noctarin.svg', bastien: 'icons/bastien.svg', mortak: 'icons/mortak.svg', draekhar: 'icons/draekhar.svg',
   carmesyne: 'icons/carmesyne.svg', skarn: 'icons/skarn.svg', umbrellis: 'icons/umbrellis.svg', eventos: 'icons/evento.svg',
-  invasao: 'icons/invasao.svg', normal: 'icons/default.svg', chefes: 'icons/chefe.svg', rathma: 'icons/rathma.svg'
-};
+  invasao: 'icons/invasao.svg', normal: 'icons/default.svg', chefes: 'icons/chefe.svg', rathma: 'icons/rathma.svg', teleporte: 'icons/tp.png'};
 
 const ordemCategorias = [
-  'chefes','wb','conquista','eventos','invasao','mercado','bastien','carmesyne','draekhar',
+  'chefes','teleporte','wb','conquista','eventos','invasao','mercado','bastien','carmesyne','draekhar',
   'mortak','noctarin','sepulkros','skarn','umbrellis','normal'
 ];
 
@@ -250,7 +249,7 @@ function toCRS(lat, lng) {
 const convertPathLoc = (path) =>
   path.map(pair => map.unproject(pair, map.getMaxZoom()))
 
-// Alfa, o Lobo Branco (1) ----------------------------------------------------------------------------------
+/* // Alfa, o Lobo Branco (1) ----------------------------------------------------------------------------------
 var latlngs = [
   [2760, 4660],
   [2800, 4670],
@@ -468,7 +467,7 @@ var polyline = L.polyline(convertPathLoc(latlngs), {
   linjoin: 'round'
 }).addTo(map);
 // ----------------------------------------------------------------------------------------------------------
-
+ */
 ordemCategorias.forEach(cat => {
   if (grupos[cat]) {
     listaDiv.appendChild(criarCategoria(cat, grupos[cat]));

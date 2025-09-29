@@ -4,6 +4,7 @@ const categorias = {
   wb: '<i class="fa-solid fa-horse"></i> Chefe Mundial', 
   conquista: '<i class="fa-solid fa-trophy"></i> Conquistas',
   invasao: '<i class="fa-solid fa-ghost"></i> Invasões', 
+  teleporte: '<i class="fa-solid fa-location-dot"></i> Teleportes',
   normal: '<i class="fa-solid fa-location-dot"></i> Outros',
   sepulkros: '<i class="fa-solid fa-crow"></i> Sepulkros', 
   noctarin: '<i class="fa-solid fa-leaf"></i> Noctarin', 
